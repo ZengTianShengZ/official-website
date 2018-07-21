@@ -37,14 +37,14 @@ class Header extends Component {
           <div className="f-jc-ac">
             <Link className={`link-text ${linkCurser === 0 ? 'link-act' : ''}`} to="/home/">Home</Link>
             <Link className={`link-text ${linkCurser === 1 ? 'link-act' : ''}`} to="/about/">About</Link>
-            <Link className={`link-text ${linkCurser === 2 ? 'link-act' : ''}`} to="/news/">News</Link>
+            {/* <Link className={`link-text ${linkCurser === 2 ? 'link-act' : ''}`} to="/news/">News</Link> */}
             <Link className={`link-text ${linkCurser === 3 ? 'link-act' : ''}`} to="/products/">Products</Link>
-            <div className="key-search f-js-ac">
+            {/* <div className="key-search f-js-ac">
               <input type="text" placeholder="keyword"/>
               <div className="icon-search">
                 <ion-icon name="search"></ion-icon>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>

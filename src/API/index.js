@@ -1,12 +1,27 @@
 import axios from 'axios';
+import store from 'store';
+
+console.log(process.env.NODE_ENV);
 
 const req = axios.create({
-  baseURL: 'https://api.github.com/repos/roadstudxp2/roadstudxp2.github.io/',
+  baseURL: 'https://api.github.com/repos/roadstudxp2/official-website/',
   timeout: 3000,
-  headers: {'Authorization': 'Bearer b0853fc84a9d074b04de9fe6cb6c0cfa986e67ce'}
+  headers: process.env.NODE_ENV === 'development' ? null : {'Authorization': 'token b0853fc84a9d074b04de9fe6cb6c0cfa986e67ce'}
 });
 
 const jsonParse = (data) => (JSON.parse(data.replace(/\s+/g, '')))
+
+const setStore = (name, data, endTime) => {
+  store.set(name, {data, endTime: endTime || new Date().getTime() + 24 * 60 * 60 * 1000})
+}
+const getStore = (name) => {
+  const res = store.get(name)
+  const nowTime = new Date().getTime()
+  if (res && res.endTime > nowTime) {
+    return res.data
+  }
+  return null
+}
 
 const sliceMarkDown = (data, start, end) => {
   const indexStart = data.indexOf(start) + start.length
@@ -28,17 +43,20 @@ const sliceProduceUrls = (str) => {
 }
 
 const getData = async(url, parse = true) => {
+  // 接口缓存一天
+  let res = getStore('API' + url)
+  if (res) {
+    return res
+  }
   try {
     const response = await req.get(url)
     if (response.data && response.data.body) {
-      // let data = response.data.body.replace(/\s+/g, '')
-      // if (parse) {
-      //   data = JSON.parse(data)
-      // }
-      return {
+      res = {
         success: true,
         data: response.data.body
       }
+      setStore('API' + url, res)
+      return res
     } else {
       return {success: false, data: {}}
     }
@@ -48,7 +66,7 @@ const getData = async(url, parse = true) => {
   }
 }
 
-export const getProducts = async(url = '/issues/5') => {
+export const getProducts = async(url = '/issues/3') => {
   const res = await getData(url)
   if (res.success) {
     let list = []
