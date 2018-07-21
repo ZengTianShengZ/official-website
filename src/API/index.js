@@ -85,6 +85,9 @@ export const getProducts = async(url = '/issues/3') => {
 }
 
 /**
+ * _PRODUCT_TITLE_START_
+ * _PRODUCT_TITLE_END_
+ * 
  * _PRODUCT_IMG_START_
  * _PRODUCT_IMG_END_
  * 
@@ -100,12 +103,14 @@ export const getProducts = async(url = '/issues/3') => {
 export const getProductItem = async(url) => {
   const res = await getData(url)
   if (res.success) {
+    const _PRODUCT_TITLE_ = sliceMarkDown(res.data, '_PRODUCT_TITLE_START_', '_PRODUCT_TITLE_END_')
     const _PRODUCT_IMG_ = sliceMarkDown(res.data, '_PRODUCT_IMG_START_', '_PRODUCT_IMG_END_')
     const _PRODUCT_DESCRIBE_ = sliceMarkDown(res.data, '_PRODUCT_DESCRIBE_START_', '_PRODUCT_DESCRIBE_END_')
     const _PRODUCT_DETAIL_ = sliceMarkDown(res.data, '_PRODUCT_DETAIL_START_', '_PRODUCT_DETAIL_END_')
     const imgUrls = sliceProduceUrls(_PRODUCT_IMG_)
     res.data = {
       imgUrls,
+      title: _PRODUCT_TITLE_,
       describe: _PRODUCT_DESCRIBE_,
       detail: _PRODUCT_DETAIL_
     }

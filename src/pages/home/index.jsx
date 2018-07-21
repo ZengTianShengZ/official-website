@@ -77,25 +77,25 @@ class Home extends Component {
           <h2 className="title">MAIN PRODUCTS</h2>
           <ul className="f-jc-ac">
             <li className="li-item">
-              <img src="/react-snap-example/imgHome/p1.jpg" alt="Solar Road" />
+              <img src="/image/imgHome/p1.jpg" alt="Solar Road" />
               <h3>Solar Road Stud For Road Turning</h3>
               <p>Size:138*34*50mm</p>
               <p>Material:Anti-UV PC+Aluminum</p>
             </li>
             <li className="li-item">
-              <img src="/react-snap-example/imgHome/p2.jpg" alt="" />
+              <img src="/image/imgHome/p2.jpg" alt="" />
               <h3>Solar Road Stud For Road Turning</h3>
               <p>Size:138*34*50mm</p>
               <p>Material:Anti-UV PC+Aluminum</p>
             </li>
             <li className="li-item">
-              <img src="/react-snap-example/imgHome/p3.jpg" alt="" />
+              <img src="/image/imgHome/p3.jpg" alt="" />
               <h3>Solar Road Stud For Road Turning</h3>
               <p>Size:138*34*50mm</p>
               <p>Material:Anti-UV PC+Aluminum</p>
             </li>
             <li className="li-item">
-              <img src="/react-snap-example/imgHome/p4.jpg" alt="" />
+              <img src="/image/imgHome/p4.jpg" alt="" />
               <h3>Solar Road Stud For Road Turning</h3>
               <p>Size:138*34*50mm</p>
               <p>Material:Anti-UV PC+Aluminum</p>
@@ -108,22 +108,22 @@ class Home extends Component {
               <h2 className="title">Contact Us</h2>
               <ul className="ul-items f-jc-ac">
                 <li className="li-item f-jc-ac-dc">
-                  <img src="/react-snap-example/imgHome/us_img1.png" alt="" />
+                  <img src="/image/imgHome/us_img1.png" alt="" />
                   <span>Sales Manager</span>
                   <a href="mailto:solarroadstud@yeah.net">solarroadstud@yeah.net</a>
                 </li>
                 <li className="li-item f-jc-ac-dc">
-                  <img src="/react-snap-example/imgHome/us_img2.png" alt="" />
+                  <img src="/image/imgHome/us_img2.png" alt="" />
                   <span>Sales Manager</span>
                   <a href="mailto:solarroadstud@yeah.net">solarroadstud@yeah.net</a>
                 </li>
                 <li className="li-item f-jc-ac-dc">
-                  <img src="/react-snap-example/imgHome/us_img3.png" alt="" />
+                  <img src="/image/imgHome/us_img3.png" alt="" />
                   <span>Sales Manager</span>
                   <a href="mailto:solarroadstud@yeah.net">solarroadstud@yeah.net</a>
                 </li>
                 <li className="li-item f-jc-ac-dc">
-                  <img src="/react-snap-example/imgHome/us_img4.png" alt="" />
+                  <img src="/image/imgHome/us_img4.png" alt="" />
                   <span>Sales Manager</span>
                   <a href="mailto:solarroadstud@yeah.net">solarroadstud@yeah.net</a>
                 </li>

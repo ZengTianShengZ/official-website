@@ -49,10 +49,10 @@ class About extends Component {
           <h2 className="title">Certificate</h2>
           <div className="f-js-ac">
             <div>
-              <img className="certificate-img" src="/react-snap-example/imgHome/certificate-img.jpg" alt=""/>
+              <img className="certificate-img" src="/image/imgHome/certificate-img.jpg" alt=""/>
             </div>
             <div>
-              <img className="certificate-img" src="/react-snap-example/imgHome/certificate-img.jpg" alt=""/>
+              <img className="certificate-img" src="/image/imgHome/certificate-img.jpg" alt=""/>
             </div>
           </div>
         </div>
