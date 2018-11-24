@@ -5,8 +5,8 @@ console.log(process.env.NODE_ENV);
 
 const req = axios.create({
   baseURL: 'https://api.github.com/repos/roadstudxp2/official-website/',
-  timeout: 3000,
-  headers: process.env.NODE_ENV === 'development' ? null : {'Authorization': 'token b0853fc84a9d074b04de9fe6cb6c0cfa986e67ce'}
+  timeout: 3000
+  // headers: process.env.NODE_ENV === 'development' ? null : {'Authorization': 'token b0853fc84a9d074b04de9fe6cb6c0cfa986e67ce'}
 });
 
 const jsonParse = (data) => (JSON.parse(data.replace(/\s+/g, '')))
