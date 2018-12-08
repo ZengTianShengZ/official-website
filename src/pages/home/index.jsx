@@ -8,40 +8,7 @@ import './style.less';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-
-class SimpleSlider extends React.Component {
-  render() {
-    var settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      directionNav: true,
-      autoplay: true,
-      accessibility: true
-    };
-    return (
-      <Slider {...settings}>
-        <div>
-          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
-        </div>
-        <div>
-          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
-        </div>
-        <div>
-          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
-        </div>
-        <div>
-          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
-        </div>
-        <div>
-          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
-        </div>
-      </Slider>
-    );
-  }
-}
+import productionData from 'src/asses/productionData.json'
 
 class Home extends Component {
   state = {};
@@ -49,6 +16,7 @@ class Home extends Component {
     window.scrollTo(0, 0)
   }
   render() {
+    const mainProject = productionData.slice(0, 4)
     return (
       <section className="app-home">
         <SimpleSlider />
@@ -76,30 +44,16 @@ class Home extends Component {
         <div className="part-section part-2">
           <h2 className="title">MAIN PRODUCTS</h2>
           <ul className="f-jc-ac">
-            <li className="li-item">
-              <img src="/image/imgHome/p1.jpg" alt="Solar Road" />
-              <h3>Solar Road Stud For Road Turning</h3>
-              <p>Size:138*34*50mm</p>
-              <p>Material:Anti-UV PC+Aluminum</p>
-            </li>
-            <li className="li-item">
-              <img src="/image/imgHome/p2.jpg" alt="" />
-              <h3>Solar Road Stud For Road Turning</h3>
-              <p>Size:138*34*50mm</p>
-              <p>Material:Anti-UV PC+Aluminum</p>
-            </li>
-            <li className="li-item">
-              <img src="/image/imgHome/p3.jpg" alt="" />
-              <h3>Solar Road Stud For Road Turning</h3>
-              <p>Size:138*34*50mm</p>
-              <p>Material:Anti-UV PC+Aluminum</p>
-            </li>
-            <li className="li-item">
-              <img src="/image/imgHome/p4.jpg" alt="" />
-              <h3>Solar Road Stud For Road Turning</h3>
-              <p>Size:138*34*50mm</p>
-              <p>Material:Anti-UV PC+Aluminum</p>
-            </li>
+            {
+              mainProject.map((item, index) => {
+                return (
+                  <li className="li-item" key={index}>
+                    <img src={item.imgUrls[0]} alt="Solar Road" />
+                    <h3 className="h3-title">{item.title}</h3>
+                  </li>
+                )
+              })
+            }
           </ul>
         </div>
         <div className="part-section part-3">
@@ -151,6 +105,40 @@ class Home extends Component {
           <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zhangzhou,+Fujian,+China&amp;aq=0&amp;oq=purwo&amp;sll=24.5106875,115.4360861&amp;sspn=50.291089,104.238281&amp;ie=UTF8&amp;hq=&amp;hnear=Zhangzhou,+Fujian,+China&amp;ll=24.5106875,115.4360861&amp;spn=0.031022,0.050898&amp;t=m&amp;z=14&amp;output=embed" />
         </div>
       </section>
+    );
+  }
+}
+
+class SimpleSlider extends React.Component {
+  render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      directionNav: true,
+      autoplay: true,
+      accessibility: true
+    };
+    return (
+      <Slider {...settings}>
+        <div>
+          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
+        </div>
+        <div>
+          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
+        </div>
+        <div>
+          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
+        </div>
+        <div>
+          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
+        </div>
+        <div>
+          <img className="slider-img" src="https://sc01.alicdn.com/kf/HTB1oDt2QVXXXXbHapXXq6xXFXXXn.jpg" alt="" />
+        </div>
+      </Slider>
     );
   }
 }

@@ -3,7 +3,6 @@
  * @author: zengtiansheng
  * @update: 2018/5/5
  */
-import axios from 'src/axios'
 
 export const formatDate = (createdAt) => {
   const time = new Date(createdAt)
@@ -19,14 +18,6 @@ export const formatDate = (createdAt) => {
   // const hh = time.getHours()
   // const mm = time.getMinutes()
   return `${yeat}-${month}-${dd}`
-}
-
-export const resetAxiosHeaders = (jwtStr) => {
-  axios.baseInitHeaders = () => ({
-    'Accept': 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'QMHX-Authorization': `Bearer ${jwtStr}`
-  })
 }
 
 /**
@@ -58,4 +49,21 @@ export const deleteEmptyObjParam = obj => {
     }
   })
   return obj
+}
+
+/**
+ * JS获取n至m随机整数
+ */
+export const randomNums = (start, end, count) => {
+  var c = end - start + 1;
+  let set = new Set()
+  const mackNum = () => {
+    const num = Math.floor(Math.random() * c + start);
+    if (set.size < count) {
+      set.add(num)
+      mackNum()
+    }
+  }
+  mackNum()
+  return set
 }

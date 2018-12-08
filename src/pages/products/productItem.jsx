@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import MarkdownRenderer from 'react-markdown-renderer';
 import {getProductItem} from 'src/API/index.js';
+import {randomNums} from 'src/utils/index.js';
 import productionData from 'src/asses/productionData.json'
 import 'src/libs/etalage/etalage.css'
 import 'src/libs/etalage/jquery.etalage.min.js'
@@ -32,15 +33,30 @@ class ProductItem extends Component {
       this.setState({resData: res.data})
     }
   }
+  getRandomList() {
+    const randomList = []
+    const sets = randomNums(0, productionData.length, 4)
+    sets.forEach(index => {
+      const ra = productionData[index]
+      ra.index = index
+      randomList.push(ra)
+    });
+    return randomList
+  }
+  onItemClick(productId) {
+    let href = location.href
+    href = href.substring(0, href.lastIndexOf('/products/'))
+    window.open(`${href}/products/${productId}`)
+  }
   componentDidMount() {
     window.scrollTo(0, 0)
     const id = this.props.match.params.id
     this.setState({productionItem: productionData[id]})
-    // this.getData()
   }
   render() {
-    const list = [1, 2, 3, 4]
     const {describe, detail, imgUrls, title} = this.state.productionItem
+    const randomList = this.getRandomList()
+    console.log(randomList);
 
     return (
       <section className="app-product-item">
@@ -76,8 +92,8 @@ class ProductItem extends Component {
           </div>
           <div className="centet-content-right">
             {
-              list.map((item, index) => {
-                return (<RecommendItem key={index} item={item}/>)
+              randomList.map((item, index) => {
+                return (<RecommendItem key={index} item={item} index={index} itemClick={this.onItemClick.bind(this)}/>)
               })
             }
           </div>
@@ -114,18 +130,20 @@ const Etalage = (props) => {
     </ul>
   ) : null
 }
-const RecommendItem = () => {
+const RecommendItem = (props) => {
+  const {imgUrls, title, index} = props.item || {}
+
   return (
-    <div className="tj-product-item f-js-as">
-      <img className="product-img" src="/image/imgHome/p1.jpg" alt="Solar Road" />
+    <div className="tj-product-item f-jc-ac-dc" onClick={props.itemClick.bind(null, index)}>
+      <img className="product-img" src={imgUrls[0]} alt="Solar Road" />
       <div className="prd-d">
-        <p className="p-tt">Solar LED Road Stud(LD-RSD-SP)</p>
-        <div className="span-s">
+        <p className="p-tt ellipsis">{title}</p>
+        {/* <div className="span-s">
           <p className="ellipsis"><span>Size:</span> Ø116*25mm</p>
           <p className="ellipsis"><span>Material:</span> PC shell with epoxy filler</p>
           <p className="ellipsis"><span>Weight:</span> about 0.3kg</p>
           <p className="ellipsis"><span>color:</span> white ,red ,yellow ,green,blue</p>
-        </div>
+        </div> */}
       </div>
     </div>
   )
