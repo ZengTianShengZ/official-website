@@ -26,7 +26,7 @@ class ProductList extends Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0)
-    this.getData()
+    // this.getData()
   }
   render() {
     const {list} = this.state.resData

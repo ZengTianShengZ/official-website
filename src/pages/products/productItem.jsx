@@ -11,7 +11,7 @@ import 'src/libs/etalage/etalage.css'
 import 'src/libs/etalage/jquery.etalage.min.js'
 import './product-item.less'
 
-class Products extends Component {
+class ProductItem extends Component {
   state = {
     resData: {
       describe: '',
@@ -123,4 +123,4 @@ const RecommendItem = () => {
   )
 }
 
-export default Products
+export default ProductItem
