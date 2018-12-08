@@ -7,12 +7,14 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {getProducts} from 'src/API/index.js';
 import './product-list.less'
+import productionData from 'src/asses/productionData.json'
 
 class ProductList extends Component {
   state = {
     resData: {
       list: []
-    }
+    },
+    productionData: []
   }
   async getData() {
     const res = await getProducts()
@@ -26,10 +28,12 @@ class ProductList extends Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0)
+    console.log(productionData);
+    this.setState({productionData})
     // this.getData()
   }
   render() {
-    const {list} = this.state.resData
+    const productionData = this.state.productionData
     return (
       <section className="app-product-list">
         <div className="top-guide">
@@ -37,8 +41,8 @@ class ProductList extends Component {
         </div>
         <ul className="ul-contnet f-js-as">
           {
-            list.map((item, index) => {
-              return (<ProductItem key={index} item={item} itemClick={this.onItemClick.bind(this)}/>)
+            productionData.map((item, index) => {
+              return (<ProductItem key={index} item={item} index={index} itemClick={this.onItemClick.bind(this)}/>)
             })
           }
         </ul>
@@ -48,11 +52,12 @@ class ProductList extends Component {
 }
 
 const ProductItem = (props) => {
-  const {feature = {}, title, productId, productImgUrl} = props.item || {}
+  const {imgUrls, feature = {}, title, productId, productImgUrl} = props.item || {}
+
   return (
-    <li className="li-item" onClick={props.itemClick.bind(null, productId)}>
+    <li className="li-item" onClick={props.itemClick.bind(null, props.index)}>
       <div className="li-item-content">
-        <img className="prod-img" src={productImgUrl} alt="Solar Road" />
+        <img className="prod-img" src={imgUrls[0]} alt="Solar Road" />
         <div className="products-detail">
           <div className="title">{title}</div>
           <div className="details f-js-as-dc">

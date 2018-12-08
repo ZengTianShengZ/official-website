@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import MarkdownRenderer from 'react-markdown-renderer';
 import {getProductItem} from 'src/API/index.js';
+import productionData from 'src/asses/productionData.json'
 import 'src/libs/etalage/etalage.css'
 import 'src/libs/etalage/jquery.etalage.min.js'
 import './product-item.less'
@@ -14,6 +15,11 @@ import './product-item.less'
 class ProductItem extends Component {
   state = {
     resData: {
+      describe: '',
+      detail: '',
+      imgUrls: []
+    },
+    productionItem: {
       describe: '',
       detail: '',
       imgUrls: []
@@ -28,11 +34,13 @@ class ProductItem extends Component {
   }
   componentDidMount() {
     window.scrollTo(0, 0)
-    this.getData()
+    const id = this.props.match.params.id
+    this.setState({productionItem: productionData[id]})
+    // this.getData()
   }
   render() {
     const list = [1, 2, 3, 4]
-    const {describe, detail, imgUrls, title} = this.state.resData
+    const {describe, detail, imgUrls, title} = this.state.productionItem
 
     return (
       <section className="app-product-item">
