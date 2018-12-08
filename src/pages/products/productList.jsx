@@ -24,7 +24,8 @@ class ProductList extends Component {
     }
   }
   onItemClick(productId) {
-    this.props.history.push('/products/' + productId)
+    window.open(`${location.href}${productId}`)
+    // this.props.history.push('/products/' + productId)
   }
   componentDidMount() {
     window.scrollTo(0, 0)
@@ -52,7 +53,7 @@ class ProductList extends Component {
 }
 
 const ProductItem = (props) => {
-  const {imgUrls, feature = {}, title, productId, productImgUrl} = props.item || {}
+  const {imgUrls, title} = props.item || {}
 
   return (
     <li className="li-item" onClick={props.itemClick.bind(null, props.index)}>
@@ -60,11 +61,11 @@ const ProductItem = (props) => {
         <img className="prod-img" src={imgUrls[0]} alt="Solar Road" />
         <div className="products-detail">
           <div className="title">{title}</div>
-          <div className="details f-js-as-dc">
+          {/* <div className="details f-js-as-dc">
             <span>Size:{feature.size}</span>
             <span>color:{feature.color}</span>
             <span>Weight:{feature.weight}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </li>

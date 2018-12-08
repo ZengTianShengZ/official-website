@@ -1,7 +1,8 @@
 const fs = require('fs');
 const axios = require('axios');
 const req = axios.create({
-  baseURL: 'https://api.github.com/repos/roadstudxp2/official-website/',
+  // baseURL: 'https://api.github.com/repos/roadstudxp2/official-website/',
+  baseURL: 'https://api.github.com/repos/roadstudxp2/roadstudxp2.github.io/',
   timeout: 30000
   // headers: process.env.NODE_ENV === 'development' ? null : {'Authorization': 'token b0853fc84a9d074b04de9fe6cb6c0cfa986e67ce'}
 });
@@ -109,19 +110,23 @@ const getProductItem = async(url) => {
 // 13 - 50
 let issuesList = []
 const getIssues = async (index) => {
-  if (index > 10) {
-    console.log(JSON.stringify(issuesList));
+  let res = {}
+  if (index > 60) {
     fs.writeFileSync('productionData.json', JSON.stringify(issuesList), 'utf8')
     return
   }
-  const res = await getProductItem(`/issues/${index}`)
+  try {
+    res = await getProductItem(`/issues/${index}`)
+  } catch (error) {
+
+  }
   if (res.success) {
     issuesList.push(res.data)
   }
   index++
   getIssues(index)
 }
-
-const res = getIssues(10).then(res => {
+// 12 ~ 60
+const res = getIssues(12).then(res => {
   console.log(res);
 })
