@@ -79,7 +79,11 @@ class ProductItem extends Component {
           </div>
           <div className="right-content">
             <div className="heard-content f-js-ac">
-              <img className="heard-img" src="/image/imgHome/us_img1.png" alt="" />
+              <img
+                className="heard-img"
+                src="https://user-images.githubusercontent.com/35425986/49698887-f416be00-fc04-11e8-897c-912ac7c4ae93.png"
+                alt=""
+              />
               <span className="heard-name">Sales Manager</span>
             </div>
             <p className="p-text">

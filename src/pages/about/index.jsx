@@ -3,14 +3,13 @@
  * @author: zengtiansheng
  * @update: 2018/5/23
  */
-import React, {Component} from 'react';
-import './style.less'
+import React, { Component } from 'react';
+import './style.less';
 
 class About extends Component {
-  state = {
-  }
+  state = {};
   componentDidMount() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
   render() {
     return (
@@ -20,32 +19,58 @@ class About extends Component {
           <div className="content-p">
             <h3 className="title-3">About RoadstudXP</h3>
             <p>XP Road Stud --Beautiful and Safe Scenery Line in Cities !</p>
-            <p>XP Industrial is a professional road stud manufacturer since 1996 ,have senior R&D development specialized on road stud,road reflector ,cat eyes road spike .</p>
-            <p>Our massion is that we only provide high quality road stud for our customers ,agent ,and our construction project ,road safety is the most important project in every country ,so the high quality road stud is necessary !!</p>
+            <p>
+              XP Industrial is a professional road stud manufacturer since 1996 ,have senior R&D development specialized
+              on road stud,road reflector ,cat eyes road spike .
+            </p>
+            <p>
+              Our massion is that we only provide high quality road stud for our customers ,agent ,and our construction
+              project ,road safety is the most important project in every country ,so the high quality road stud is
+              necessary !!
+            </p>
           </div>
           <div className="content-p">
             <h3 className="title-3">About RoadstudXP</h3>
             <p>XP Road Stud --Beautiful and Safe Scenery Line in Cities !</p>
-            <p>XP Industrial is a professional road stud manufacturer since 1996 ,have senior R&D development specialized on road stud,road reflector ,cat eyes road spike .</p>
-            <p>Our massion is that we only provide high quality road stud for our customers ,agent ,and our construction project ,road safety is the most important project in every country ,so the high quality road stud is necessary !!</p>
+            <p>
+              XP Industrial is a professional road stud manufacturer since 1996 ,have senior R&D development specialized
+              on road stud,road reflector ,cat eyes road spike .
+            </p>
+            <p>
+              Our massion is that we only provide high quality road stud for our customers ,agent ,and our construction
+              project ,road safety is the most important project in every country ,so the high quality road stud is
+              necessary !!
+            </p>
           </div>
         </div>
         <div className="content-part">
           <h2 className="title">History</h2>
           <div className="content-p">
             <h3 className="title-3">XP Establishment Time</h3>
-            <p>XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road safety file,own many kinds of patent products,as a Member of National traffic engineering facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .</p>
+            <p>
+              XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road
+              safety file,own many kinds of patent products,as a Member of National traffic engineering
+              facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .
+            </p>
           </div>
           <div className="content-p">
             <h3 className="title-3">XP Establishment Time</h3>
-            <p>XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road safety file,own many kinds of patent products,as a Member of National traffic engineering facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .</p>
+            <p>
+              XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road
+              safety file,own many kinds of patent products,as a Member of National traffic engineering
+              facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .
+            </p>
           </div>
           <div className="content-p">
             <h3 className="title-3">XP Establishment Time</h3>
-            <p>XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road safety file,own many kinds of patent products,as a Member of National traffic engineering facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .</p>
+            <p>
+              XP road stud established in 1996 ,specialized on solar power,LED technology study and development on road
+              safety file,own many kinds of patent products,as a Member of National traffic engineering
+              facility(highway)standardization (stipulating and revis1ing standard of road safety products in China ) .
+            </p>
           </div>
         </div>
-        <div className="content-part">
+        {/* <div className="content-part">
           <h2 className="title">Certificate</h2>
           <div className="f-js-ac">
             <div>
@@ -55,7 +80,7 @@ class About extends Component {
               <img className="certificate-img" src="/image/imgHome/certificate-img.jpg" alt=""/>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="content-part google-map">
           <h2 className="title">Company Address</h2>
           <div className="f-js-as">
@@ -68,8 +93,8 @@ class About extends Component {
           </div>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default About
+export default About;
