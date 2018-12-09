@@ -35,7 +35,7 @@ const sliceProduceUrls = (str) => {
   }
   return urls
 }
-const getData = async(url, parse = true) => {
+const getData = async (url, parse = true) => {
   try {
     const response = await req.get(url)
     if (response.data && response.data.body) {
@@ -44,22 +44,30 @@ const getData = async(url, parse = true) => {
         data: response.data.body
       }
     } else {
-      return {success: false, data: {}}
+      return {
+        success: false,
+        data: {}
+      }
     }
   } catch (error) {
     console.log(error)
-    return {success: false, data: {}}
+    return {
+      success: false,
+      data: {}
+    }
   }
 }
 
-const getProducts = async(url = '/issues/3') => {
+const getProducts = async (url = '/issues/3') => {
   const res = await getData(url)
   if (res.success) {
     let list = []
     res.data = jsonParse(res.data)
     if (res.data.list) {
       list = res.data.list.map((item) => {
-        const {productImgUrl} = item
+        const {
+          productImgUrl
+        } = item
         item.productImgUrl = productImgUrl.substring(9, productImgUrl.length - 1)
         return item
       })
@@ -86,8 +94,8 @@ const getProducts = async(url = '/issues/3') => {
  * 
  * 
  * @param {*} url 
- */ 
-const getProductItem = async(url) => {
+ */
+const getProductItem = async (url) => {
   const res = await getData(url)
   if (res.success) {
     const _PRODUCT_TITLE_ = sliceMarkDown(res.data, '_PRODUCT_TITLE_START_', '_PRODUCT_TITLE_END_')
@@ -112,13 +120,14 @@ let issuesList = []
 const getIssues = async (index) => {
   let res = {}
   if (index > 60) {
-    fs.writeFileSync('productionData.json', JSON.stringify(issuesList), 'utf8')
+    fs.writeFileSync('./productionData.json', JSON.stringify(issuesList), 'utf8')
     return
   }
   try {
     res = await getProductItem(`/issues/${index}`)
+    console.log('successful-------', index);
   } catch (error) {
-
+    console.log('-----------error', index);
   }
   if (res.success) {
     issuesList.push(res.data)
